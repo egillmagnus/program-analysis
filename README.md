@@ -1,38 +1,38 @@
-# 02242 Program Analysis — syntactic analysis (ABE)
+# 02242 Program Analysis (ABE)
 
-Analyser for [JPAMB](https://github.com/kalhauge/jpamb) assignment 1.
-Expects the jpamb clone as a sibling folder:
+Analysers for [JPAMB](https://github.com/kalhauge/jpamb), one folder per
+assignment. Expects the jpamb clone as a sibling folder:
 
 ```
 02242-Program-Analysis/
-├── jpamb/        # git clone https://github.com/kalhauge/jpamb.git
-└── analysis/     # this repo
+├── jpamb/            # git clone https://github.com/kalhauge/jpamb.git
+└── analysis/         # this repo
+    └── syntactic/    # assignment 1
 ```
 
-## Run
+## Syntactic (assignment 1)
 
-From the root of this folder:
+Run from the root of this folder:
 
 ```
-.venv/Scripts/jpamb.exe --workdir ../jpamb analyse --report ../analysis/report.sexp ../analysis/.venv/Scripts/python.exe ../analysis/syntactic_analysis.py
+.venv/Scripts/jpamb.exe --workdir ../jpamb analyse --report ../analysis/syntactic/report.sexp ../analysis/.venv/Scripts/python.exe ../analysis/syntactic/syntactic_analysis.py
 ```
 
-Writes `report.sexp`, which is what gets uploaded to Autolab.
+Writes `syntactic/report.sexp`, which is what gets uploaded to Autolab.
 
 The `../analysis/` prefixes are not a mistake: jpamb changes into the
 `--workdir` before it opens the report or launches the analyser, so those three
 paths are resolved from inside `jpamb/`, not from here. Drop the prefixes and
-the report silently lands in the jpamb clone instead.
+the report silently lands in the jpamb clone instead. `--workdir` is the one
+argument resolved from here, since click expands it at parse time.
 
 Swap the last argument for `syntactic_analysis_advanced.py` to run the other
 version.
 
-## Versions
-
 | File | Score |
 | --- | --- |
-| `syntactic_analysis.py` | 178.09 |
-| `syntactic_analysis_advanced.py` | 240.61 |
+| `syntactic/syntactic_analysis.py` | 178.09 |
+| `syntactic/syntactic_analysis_advanced.py` | 240.61 |
 
 Both label predictions per query (`npe-no` rather than a shared `no`). JPAMB
 fits one wager per label group, so keeping the queries separate stops a weak
