@@ -24,24 +24,18 @@ build it up front.
 
 ## Syntactic (assignment 1)
 
-Run this from the root of this repo. It is the same on Windows, Mac and Linux,
-in PowerShell, bash or zsh.
+Run this from the root of this repo. It is the same on Windows, Mac and Linux.
 
 ```
-uv run jpamb --workdir ../jpamb analyse --report "$PWD/syntactic/report.sexp" syntactic
+uv run analyse.py syntactic/syntactic_analysis.py
 ```
 
 It writes `syntactic/report.sexp`, which is the file to upload to Autolab.
-Change the last word to `syntactic-advanced` to run the other version.
 
-The report path needs `$PWD` because jpamb moves into the jpamb folder before
-it writes the report. With a plain `syntactic/report.sexp` the report ends up
-inside the jpamb clone instead.
-
-| Command | File | Score |
-| --- | --- | --- |
-| `syntactic` | `syntactic/syntactic_analysis.py` | 178.09 |
-| `syntactic-advanced` | `syntactic/syntactic_analysis_advanced.py` | 240.61 |
+| File | Score |
+| --- | --- |
+| `syntactic/syntactic_analysis.py` | 178.09 |
+| `syntactic/syntactic_analysis_advanced.py` | 240.61 |
 
 Both label each prediction by query, such as `npe-no` instead of a shared
 `no`. JPAMB fits one wager per label, so keeping the queries apart stops a
@@ -50,6 +44,6 @@ comes from.
 
 ## Adding an analyser
 
-Put it in a folder for the assignment and give it a `main()` function. Then
-add the folder to `packages` in `pyproject.toml`, and add a line under
-`[project.scripts]` that names the command. The next `uv run` picks it up.
+Put the `.py` file in a folder for the assignment and run it the same way.
+The report lands next to it. Each folder has one `report.sexp`, so running a
+second analyser in the same folder overwrites the first one's report.
