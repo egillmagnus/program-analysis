@@ -1,0 +1,3 @@
+[console_scripts]
+syntactic = syntactic.syntactic_analysis:main
+syntactic-advanced = syntactic.syntactic_analysis_advanced:main

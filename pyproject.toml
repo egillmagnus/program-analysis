@@ -1,0 +1,22 @@
+[project]
+name = "abe-analysis"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = ["jpamb"]
+
+# One command per analyser. jpamb runs them by name, so the run command
+# doesn't need a path to Python or to the script.
+[project.scripts]
+syntactic = "syntactic.syntactic_analysis:main"
+syntactic-advanced = "syntactic.syntactic_analysis_advanced:main"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+# Each assignment folder goes here, or its commands won't import.
+[tool.setuptools]
+packages = ["syntactic"]
+
+[tool.uv.sources]
+jpamb = { path = "../jpamb", editable = true }
