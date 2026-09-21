@@ -6,6 +6,11 @@ assignment.
 ## Setup
 
 You need [uv](https://docs.astral.sh/uv/getting-started/installation/).
+On a Mac you also need Apple's command line tools, because one of jpamb's
+dependencies compiles a small C part. Run `xcode-select --install` if you
+don't have them yet. You don't need Java or Docker. jpamb only uses those to
+rebuild its test programs.
+
 Clone jpamb and this repo into the same folder, so they sit side by side.
 
 ```
