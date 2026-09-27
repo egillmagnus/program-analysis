@@ -1,50 +1,26 @@
 #!/usr/bin/env python3
-"""A dynamic analysis for JPAMB.
+"""A concrete interpreter for JPAMB.
 
-Unlike the syntactic analysis, this one does not look at the Java source at
-all. Instead it concretely executes the method's JVM bytecode -- stepping
-through the actual opcodes on a real stack/locals/heap -- for a handful of
-generated inputs, and tallies what happened (returned normally, threw one of
-the runtime exceptions, or ran out of steps) to answer each query.
+This is the "Concrete Interpreter" half of the assignment: given one exact
+input, replay the method's JVM bytecode step by step and report the JVM
+state after each instruction, using JPAMB's own sexpr emitters
+(`emit_init`/`emit_step`) so `jpamb interpret` can check our trace against
+its recorded coverage/results.
 
-`step` follows the small-step semantics from the course's Semantics topic:
-given the bytecode and a state, do what one instruction says and return
-either the new state, or a string naming how execution ended ("ok",
-"divide by zero", ...). `run` just calls `step` in a loop.
-
-This first pass only understands the opcodes needed for straight-line code,
-arithmetic, locals, branches/loops, and `assert` (which compiles to a
-static-field check + `new AssertionError` + `throw`). Anything that needs
-the heap for arrays/objects, or a real method call, is still a TODO --
-`step`'s fallback raises NotImplementedError for those, which `main` treats
-as "no evidence either way" for that input.
-
-As with the syntactic analysis, each query gets its own label ("dbz-never"
-rather than a shared "never") so JPAMB fits a separate wager per query. This
-also matters for a less obvious reason: JPAMB's Autolab grading divides by
-the number of distinct labels seen (`100 / len(categories)`), so a report
-that only ever emits raw percentages (no labels at all) makes that divide
-by zero and the whole submission scores 0 -- learned that the hard way.
+`step` is the same small-step engine used by ../dynamic/dynamic.py -- see
+that file's docstring for the semantics this follows. It only understands
+the opcodes needed for straight-line code, arithmetic, locals,
+branches/loops, and `assert` failing; anything that needs the heap for
+arrays/objects, or a real method call, still raises NotImplementedError,
+which just stops the trace early rather than crashing.
 """
 
-from collections import Counter
-
 import jpamb
+import jpamb.case
 import jvm
 import jvm.state
 
 GROUP = "ABE"
-
-MAX_STEPS = 100
-
-QUERY_ABBR = {
-    "*": "inf",
-    "assertion error": "as",
-    "divide by zero": "dbz",
-    "null pointer": "npe",
-    "ok": "ok",
-    "out of bounds": "oob",
-}
 
 
 def _java_div(a: int, b: int) -> int:
@@ -199,68 +175,51 @@ def step(bytecode: jpamb.Bytecode, state: jvm.state.State) -> jvm.state.State | 
     return state
 
 
-def run(method: jvm.Method, bytecode: jpamb.Bytecode, args, max_steps: int) -> str:
-    """Concretely execute `method` from its start, and report the outcome."""
+def _to_stackvalue(heap: jvm.state.Heap, value: jpamb.case.Value) -> jvm.state.StackValue:
+    """Turn one of JPAMB's parsed input values into something we can put in
+    a local variable slot -- ints/bools/chars go straight on as StackInt,
+    strings/arrays get a heap entry and a reference to it."""
 
-    frame = jvm.state.Frame.from_method(method)
-    for i, value in enumerate(args):
-        frame.locals[i] = jvm.state.StackInt(value)
-
-    state = jvm.state.State(jvm.state.Heap(), jvm.state.CallStack.from_frames([frame]))
-
-    for _ in range(max_steps):
-        result = step(bytecode, state)
-        if isinstance(result, str):
-            return result
-        state = result
-
-    return "*"
-
-
-def generate_inputs(params) -> list[list]:
-    """A first pass at concrete inputs to try -- just a few small integers."""
-
-    # TODO: branch on each parameter's type (Int, Boolean, Array, ...) instead
-    # of assuming every parameter is an int.
-    candidates = [-1, 0, 1, 5]
-    return [[c for _ in params] for c in candidates]
+    match value:
+        case jpamb.case.Int(v) | jpamb.case.Boolean(v):
+            return jvm.state.StackInt(int(v))
+        case jpamb.case.Char(v):
+            return jvm.state.StackInt(ord(v))
+        case jpamb.case.String(v):
+            return heap.new(jvm.state.HeapString(v))
+        case jpamb.case.Array(contains=c, values=vs):
+            return heap.new(jvm.state.HeapArray(c, list(vs)))
+        case _:
+            raise NotImplementedError(f"Don't know how to seed a local with {value!r}")
 
 
 def main():
-    methodid = jpamb.getmethodid(
-        "simple-dynamic", "1.0", GROUP, ["dynamic", "python"], for_science=True
+    methodid, experiment_input, max_steps = jpamb.getcase(
+        "simple-interpreter", "1.0", GROUP, ["interpreter", "python"], for_science=True
     )
     suite, eff = jpamb.setup()
     bytecode = jpamb.Bytecode(suite, eff)
     method = bytecode.getmethod(methodid)
 
-    outcomes = Counter()
-    for args in generate_inputs(methodid.extension.params):
+    heap = jvm.state.Heap()
+    frame = jvm.state.Frame.from_method(method)
+    if experiment_input is not None:
+        for i, value in enumerate(experiment_input.values):
+            frame.locals[i] = _to_stackvalue(heap, value)
+
+    state = jvm.state.State(heap, jvm.state.CallStack.from_frames([frame]))
+
+    before = jpamb.emit_init(state)
+    for _ in range(max_steps):
+        pc = state.frames.peek().pc
         try:
-            outcome = run(method, bytecode, args, MAX_STEPS)
+            result = step(bytecode, state)
         except NotImplementedError:
-            outcome = None
-        if outcome is not None:
-            outcomes[outcome] += 1
-
-    total = sum(outcomes.values())
-
-    def category(query: str) -> str:
-        # A Category (unlike a bare percentage) gets aggregated across the
-        # whole run into a shared wager per label -- see the module
-        # docstring for why a raw percentage alone breaks Autolab grading.
-        abbr = QUERY_ABBR[query]
-        if not total:
-            return f"{abbr}-unknown"
-        fraction = outcomes[query] / total
-        if fraction == 0:
-            return f"{abbr}-never"
-        if fraction == 1:
-            return f"{abbr}-always"
-        return f"{abbr}-sometimes"
-
-    for query in jpamb.QUERIES:
-        print(f"{query};{category(query)}")
+            # Can't take this step; stop the trace here rather than crash.
+            break
+        before = jpamb.emit_step(before, pc, result)
+        if isinstance(result, str):
+            break
 
 
 if __name__ == "__main__":
