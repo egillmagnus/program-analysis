@@ -64,2305 +64,2305 @@
     :"jpamb.cases.Arrays.arrayContent:()V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 623494500
-          :relative 1.6729315212271585
+          :absolute 447719600
+          :relative 1.697640309163571
         )
-        :calibrates (11728400 14752400)
+        :calibrates (8241500 9722200)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 426714800
-          :relative 1.7099647936380546
+          :absolute 392786300
+          :relative 1.6882876253591168
         )
-        :calibrates (8337100 8304800)
+        :calibrates (7947700 8155000)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 587092900
-          :relative 1.6538090775617178
+          :absolute 473022900
+          :relative 1.7702639831508291
         )
-        :calibrates (13458400 12598800)
+        :calibrates (6229400 9827000)
       ))
     :"jpamb.cases.Arrays.arrayContentAboveMinus13:()V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 676705600
-          :relative 1.7312683860823057
+          :absolute 432998700
+          :relative 1.6932642141564807
         )
-        :calibrates (13782300 11345900)
+        :calibrates (8162600 9386400)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 422608600
-          :relative 1.6925371003118774
+          :absolute 420079800
+          :relative 1.7056031598852037
         )
-        :calibrates (8203400 8953200)
+        :calibrates (8121400 8427100)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 662141600
-          :relative 1.7406184649442282
+          :absolute 726671300
+          :relative 1.9225206829507013
         )
-        :calibrates (12438700 11625000)
+        :calibrates (8840400 8531500)
       ))
     :"jpamb.cases.Arrays.arrayInBounds:()V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 481453400
-          :relative 1.6796455614115273
+          :absolute 422493400
+          :relative 1.6941866468936064
         )
-        :calibrates (11397400 8737000)
+        :calibrates (8170900 8916000)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 413941900
-          :relative 1.7378865392399374
+          :absolute 412588400
+          :relative 1.6455446103327418
         )
-        :calibrates (8634200 6504300)
+        :calibrates (10072000 8591900)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 553563300
-          :relative 1.600033777641212
+          :absolute 658930700
+          :relative 1.7474843599569787
         )
-        :calibrates (13377400 14430200)
+        :calibrates (10277800 13293600)
       ))
     :"jpamb.cases.Arrays.arrayIsNull:()V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 418933800
-          :relative 1.6912294651358137
+          :absolute 427359500
+          :relative 1.709234333500615
         )
-        :calibrates (8449800 8608900)
+        :calibrates (8588000 8107100)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 415666700
-          :relative 1.6725263908825294
+          :absolute 448952000
+          :relative 1.7527651935911446
         )
-        :calibrates (5908500 11762000)
+        :calibrates (7918100 7947800)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 556475700
-          :relative 1.6924946088559958
+          :absolute 667474400
+          :relative 1.8007234026793968
         )
-        :calibrates (11376600 11216800)
+        :calibrates (10285900 10836400)
       ))
     :"jpamb.cases.Arrays.arrayIsNullLength:()V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 419870500
-          :relative 1.684956030871287
+          :absolute 424930900
+          :relative 1.7147932036593598
         )
-        :calibrates (8180900 9164700)
+        :calibrates (7995900 8393200)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 421032300
-          :relative 1.6888434176786593
+          :absolute 415232000
+          :relative 1.6871585331042935
         )
-        :calibrates (8340400 8898200)
+        :calibrates (8048500 9018700)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 555758700
-          :relative 1.6685936195497417
+          :absolute 569980000
+          :relative 1.7327533189668671
         )
-        :calibrates (12179700 11661200)
+        :calibrates (10306700 10786200)
       ))
     :"jpamb.cases.Arrays.arrayLength:()V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 441849300
-          :relative 1.7275980233185386
+          :absolute 445759800
+          :relative 1.7221568268718488
         )
-        :calibrates (8318500 8228000)
+        :calibrates (8201300 8702100)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 418522800
-          :relative 1.6704569070466808
+          :absolute 447750200
+          :relative 1.6583409160309053
         )
-        :calibrates (8796200 9080700)
+        :calibrates (8358600 11307800)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 578677900
-          :relative 1.7429882592619574
+          :absolute 610832100
+          :relative 1.801747968321872
         )
-        :calibrates (10432600 10483400)
+        :calibrates (10378000 8906300)
       ))
     :"jpamb.cases.Arrays.arrayNotEmpty:([I)V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 424144600
-          :relative 1.7132183960483016
+          :absolute 403744400
+          :relative 1.6847192042439534
         )
-        :calibrates (8176100 8242100)
+        :calibrates (8025800 8662700)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 430800600
-          :relative 1.7039794540696105
+          :absolute 478145400
+          :relative 1.6641163940491916
         )
-        :calibrates (8754700 8279700)
+        :calibrates (11444000 9280000)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 511306800
-          :relative 1.6092841051841802
+          :absolute 518285900
+          :relative 1.7718050865602064
         )
-        :calibrates (12764000 12379600)
+        :calibrates (8317900 9212600)
       ))
     :"jpamb.cases.Arrays.arrayOutOfBounds:()V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 430251900
-          :relative 1.6206136961605124
+          :absolute 414813700
+          :relative 1.621906544659426
         )
-        :calibrates (12330400 8282500)
+        :calibrates (10747300 9066900)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 398523500
-          :relative 1.64313164325879
+          :absolute 439242000
+          :relative 1.6481469658672694
         )
-        :calibrates (8179600 9948500)
+        :calibrates (9002500 10748400)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 563314400
-          :relative 1.639942367503531
+          :absolute 526454300
+          :relative 1.7647408920429586
         )
-        :calibrates (13064900 12748100)
+        :calibrates (8990900 9107900)
       ))
     :"jpamb.cases.Arrays.arraySometimesNull:(I)V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 420772600
-          :relative 1.6005892139006792
+          :absolute 465154200
+          :relative 1.7115438309227275
         )
-        :calibrates (12927600 8182400)
+        :calibrates (8327500 9747700)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 522409800
-          :relative 1.7315799864399057
+          :absolute 403477000
+          :relative 1.644965253005345
         )
-        :calibrates (10237000 9147800)
+        :calibrates (10041800 8234300)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 554244100
-          :relative 1.7061351507774534
+          :absolute 691105200
+          :relative 1.7710725752189411
         )
-        :calibrates (10851100 10955900)
+        :calibrates (9419500 13995900)
       ))
     :"jpamb.cases.Arrays.arraySpellsHello:([C)V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 419242400
-          :relative 1.680769950114132
+          :absolute 455923500
+          :relative 1.6718270819341479
         )
-        :calibrates (8244100 9243300)
+        :calibrates (9798800 9614300)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 454215600
-          :relative 1.7356275848968825
+          :absolute 427830600
+          :relative 1.7202714619998378
         )
-        :calibrates (8372400 8325600)
+        :calibrates (8324500 7969600)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 592200300
-          :relative 1.675782763841819
+          :absolute 588499700
+          :relative 1.7066118745736352
         )
-        :calibrates (12055300 12931800)
+        :calibrates (10093600 13035800)
       ))
     :"jpamb.cases.Arrays.arraySumIsLarge:([I)V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 429050600
-          :relative 1.702951657467694
+          :absolute 441411800
+          :relative 1.7062266583423216
         )
-        :calibrates (10321900 6683500)
+        :calibrates (8640800 8723100)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 419625100
-          :relative 1.6209352965088146
+          :absolute 414244400
+          :relative 1.7085357782036386
         )
-        :calibrates (10598800 9490100)
+        :calibrates (8108700 8100100)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 625529200
-          :relative 1.6824061393898864
+          :absolute 431548100
+          :relative 1.6302844968536807
         )
-        :calibrates (14342200 11651700)
+        :calibrates (11861300 8358400)
       ))
     :"jpamb.cases.Arrays.binarySearch:(I)V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 445039000
-          :relative 1.7134882449564786
+          :absolute 462758400
+          :relative 1.749804108047419
         )
-        :calibrates (5873900 11342400)
+        :calibrates (8139300 8326400)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 435049200
-          :relative 1.6583940505004393
+          :absolute 424833600
+          :relative 1.722633431844673
         )
-        :calibrates (8467000 10639200)
+        :calibrates (8076800 8015400)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 518167900
-          :relative 1.6077273137435857
+          :absolute 421046100
+          :relative 1.7113746416764246
         )
-        :calibrates (11359400 14213100)
+        :calibrates (8247700 8119900)
       ))
     :"jpamb.cases.Calls.allPrimesArePositive:(I)V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 484658900
-          :relative 1.7379387524038235
+          :absolute 427193300
+          :relative 1.6608940968808055
         )
-        :calibrates (9153300 8569300)
+        :calibrates (8758500 9895000)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 422271400
-          :relative 1.6961420873967685
+          :absolute 408711000
+          :relative 1.6055797182928861
         )
-        :calibrates (8543400 8457800)
+        :calibrates (8295400 11975200)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 590631900
-          :relative 1.6631596409930243
+          :absolute 426013200
+          :relative 1.7524723844964638
         )
-        :calibrates (13020100 12635800)
+        :calibrates (6596700 8468700)
       ))
     :"jpamb.cases.Calls.callsAssertFalse:()V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 455122700
-          :relative 1.7141766795550237
+          :absolute 427662700
+          :relative 1.7082358430997144
         )
-        :calibrates (9391100 8187400)
+        :calibrates (8319100 8426300)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 425136800
-          :relative 1.705606115305262
+          :absolute 406160000
+          :relative 1.6009536385708085
         )
-        :calibrates (8358700 8388900)
+        :calibrates (11170500 9189300)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 535922200
-          :relative 1.688511273614939
+          :absolute 422003600
+          :relative 1.6699724183108482
         )
-        :calibrates (11065700 10893700)
+        :calibrates (8507600 9538100)
       ))
     :"jpamb.cases.Calls.callsAssertFib:(I)V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 442097300
-          :relative 1.7088257139821965
+          :absolute 427089600
+          :relative 1.6847772163824133
         )
-        :calibrates (8157300 9129800)
+        :calibrates (8339100 9312000)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 445702400
-          :relative 1.7039951271037979
+          :absolute 416579700
+          :relative 1.707351144847499
         )
-        :calibrates (8429000 9194000)
+        :calibrates (8248800 8095900)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 523223300
-          :relative 1.605407364352531
+          :absolute 424886900
+          :relative 1.6023431145419447
         )
-        :calibrates (11821400 14138900)
+        :calibrates (12893200 8337300)
       ))
     :"jpamb.cases.Calls.callsAssertIf:(Z)V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 427519500
-          :relative 1.7074347339975664
+          :absolute 469155700
+          :relative 1.6761690119713426
         )
-        :calibrates (8342800 8427900)
+        :calibrates (11160000 8617800)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 440163800
-          :relative 1.7020432653168205
+          :absolute 411886600
+          :relative 1.6703591529140989
         )
-        :calibrates (8963100 8519300)
+        :calibrates (8092000 9505400)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 529577000
-          :relative 1.6160817433551686
+          :absolute 415270900
+          :relative 1.6958032566143915
         )
-        :calibrates (12957200 12680400)
+        :calibrates (8406500 8325900)
       ))
     :"jpamb.cases.Calls.callsAssertIfWithTrue:()V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 443270700
-          :relative 1.7181630772319634
+          :absolute 414824900
+          :relative 1.7621185794124177
         )
-        :calibrates (8231400 8732900)
+        :calibrates (8469600 5877900)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 452627000
-          :relative 1.7141843050926284
+          :absolute 414827500
+          :relative 1.6600400483587303
         )
-        :calibrates (8841100 8640700)
+        :calibrates (8970100 9179100)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 522974500
-          :relative 1.6700872696207332
+          :absolute 469101900
+          :relative 1.7206808649390755
         )
-        :calibrates (11327500 11030000)
+        :calibrates (8224000 9625100)
       ))
     :"jpamb.cases.Calls.callsAssertTrue:()V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 437403500
-          :relative 1.6416429349715147
+          :absolute 441163100
+          :relative 1.7838959204697287
         )
-        :calibrates (11438500 8526500)
+        :calibrates (5704200 8808000)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 421659400
-          :relative 1.7352288055675062
+          :absolute 466675800
+          :relative 1.6354065872546804
         )
-        :calibrates (8584800 6930600)
+        :calibrates (13165400 8443800)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 588756800
-          :relative 1.6808153815286937
+          :absolute 412635700
+          :relative 1.6756084821423003
         )
-        :calibrates (10612900 13942700)
+        :calibrates (9074200 8343400)
       ))
     :"jpamb.cases.Dependent.badNormalizedDistance:(II)I" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -0.5151515151515148
-            :"null pointer" -inf
-            :ok 0.5151515151515154
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-sometimes
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 424975400
-          :relative 1.667018646114846
+          :absolute 422462900
+          :relative 1.6725122392628164
         )
-        :calibrates (9810600 8486200)
+        :calibrates (9787500 8172500)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -0.5151515151515148
-            :"null pointer" -inf
-            :ok 0.5151515151515154
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-sometimes
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 414273400
-          :relative 1.702383531953451
+          :absolute 441981900
+          :relative 1.7160724263967884
         )
-        :calibrates (7425700 9015500)
+        :calibrates (8625900 8370700)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -0.5151515151515148
-            :"null pointer" -inf
-            :ok 0.5151515151515154
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-sometimes
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 696440600
-          :relative 1.682921571034154
+          :absolute 467488100
+          :relative 1.702592453433616
         )
-        :calibrates (15144100 13762200)
+        :calibrates (9241400 9302800)
       ))
     :"jpamb.cases.Dependent.divisionLoop:(I)V" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 431566100
-          :relative 1.698076404628413
+          :absolute 452519500
+          :relative 1.743428531566529
         )
-        :calibrates (8916200 8382000)
+        :calibrates (7998500 8341000)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 489515500
-          :relative 1.705185132323035
+          :absolute 414833700
+          :relative 1.691549593682985
         )
-        :calibrates (10623700 8678700)
+        :calibrates (8297500 8581800)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 599134900
-          :relative 1.6448519688779157
+          :absolute 452390100
+          :relative 1.7156944295363368
         )
-        :calibrates (14362400 12783400)
+        :calibrates (8569600 8842400)
       ))
     :"jpamb.cases.Dependent.normalizedDistance:(II)I" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 412376400
-          :relative 1.66045816294922
+          :absolute 471821700
+          :relative 1.755430361452414
         )
-        :calibrates (8763100 9261500)
+        :calibrates (8233000 8339100)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 450732200
-          :relative 1.6865601858780328
+          :absolute 406974400
+          :relative 1.6969969947399597
         )
-        :calibrates (9441600 9110300)
+        :calibrates (8444800 7908300)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 561167800
-          :relative 1.6557165912033054
+          :absolute 437227400
+          :relative 1.697678065702528
         )
-        :calibrates (11886800 12910600)
+        :calibrates (8844100 8697100)
       ))
     :"jpamb.cases.Dependent.safeDivByN:(I)I" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 427328200
-          :relative 1.6930957456916103
+          :absolute 440054300
+          :relative 1.7214766544966358
         )
-        :calibrates (8913500 8412400)
+        :calibrates (8365400 8347800)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 423997900
-          :relative 1.4218480824868873
+          :absolute 444955000
+          :relative 1.7254764968700929
         )
-        :calibrates (8339300 23763700)
+        :calibrates (8165700 8578700)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 630594200
-          :relative 1.7020086468386282
+          :absolute 434538000
+          :relative 1.6999660878703453
         )
-        :calibrates (12935800 12112100)
+        :calibrates (8864400 8477300)
       ))
     :"jpamb.cases.Loops.forever:()V" ((analysis-result
         :response (response
           :predictions (
-            :* inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-always
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 491231700
-          :relative 1.7603424450234824
+          :absolute 420254400
+          :relative 1.620804217777279
         )
-        :calibrates (8412600 8647200)
+        :calibrates (8175400 11949700)
       ) (analysis-result
         :response (response
           :predictions (
-            :* inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-always
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 436939000
-          :relative 1.5273854138577778
+          :absolute 433703100
+          :relative 1.7191543220196306
         )
-        :calibrates (17605000 8340700)
+        :calibrates (7978600 8581700)
       ) (analysis-result
         :response (response
           :predictions (
-            :* inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-always
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 568338400
-          :relative 1.6594481139294035
+          :absolute 407779500
+          :relative 1.6641082479496476
         )
-        :calibrates (14187000 10712400)
+        :calibrates (8730400 8944100)
       ))
     :"jpamb.cases.Loops.neverAsserts:()V" ((analysis-result
         :response (response
           :predictions (
-            :* inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-always
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 461691600
-          :relative 1.6224483056016006
+          :absolute 447004700
+          :relative 1.700722060694836
         )
-        :calibrates (8733800 13292100)
+        :calibrates (9482800 8325400)
       ) (analysis-result
         :response (response
           :predictions (
-            :* inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-always
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 422233200
-          :relative 1.6527180040088683
+          :absolute 425043800
+          :relative 1.6981546871671516
         )
-        :calibrates (9787100 9000200)
+        :calibrates (8940200 8093500)
       ) (analysis-result
         :response (response
           :predictions (
-            :* inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-always
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 530651200
-          :relative 1.592515833441806
+          :absolute 423012400
+          :relative 1.6070186763987948
         )
-        :calibrates (12639000 14483100)
+        :calibrates (9984100 10926400)
       ))
     :"jpamb.cases.Loops.neverDivides:()I" ((analysis-result
         :response (response
           :predictions (
-            :* inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-always
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 435697100
-          :relative 1.6687494551927027
+          :absolute 402673300
+          :relative 1.7424964518824844
         )
-        :calibrates (9952000 8731800)
+        :calibrates (5961100 8609800)
       ) (analysis-result
         :response (response
           :predictions (
-            :* inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-always
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 433274200
-          :relative 1.7084361211593526
+          :absolute 420138100
+          :relative 1.7020906459847818
         )
-        :calibrates (8337400 8619900)
+        :calibrates (8027700 8657500)
       ) (analysis-result
         :response (response
           :predictions (
-            :* inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-always
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 590195000
-          :relative 1.6563778705627024
+          :absolute 426315400
+          :relative 1.6959704871002206
         )
-        :calibrates (15682200 10358200)
+        :calibrates (8207100 8963700)
       ))
     :"jpamb.cases.Loops.terminates:()V" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-always
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 427794100
-          :relative 1.7006117299059353
+          :absolute 415122600
+          :relative 1.5979933250386291
         )
-        :calibrates (8619600 8427600)
+        :calibrates (8163600 12787800)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-always
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 421094200
-          :relative 1.6254511171512014
+          :absolute 416686100
+          :relative 1.6135569619413217
         )
-        :calibrates (8787400 11163300)
+        :calibrates (8014500 12275500)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-always
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 569468600
-          :relative 1.6687790173542074
+          :absolute 418577800
+          :relative 1.6834641563238468
         )
-        :calibrates (12910300 11508300)
+        :calibrates (8604000 8747700)
       ))
     :"jpamb.cases.Simple.assertBoolean:(Z)V" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -1.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok 1.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 451900900
-          :relative 1.7039146265684395
+          :absolute 437905200
+          :relative 1.6887523060310063
         )
-        :calibrates (8309500 9561900)
+        :calibrates (9345800 8587400)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -1.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok 1.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 435211200
-          :relative 1.6717304392833017
+          :absolute 417009600
+          :relative 1.6750641719232653
         )
-        :calibrates (9192300 9343000)
+        :calibrates (9015600 8608700)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -1.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok 1.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 632187800
-          :relative 1.6474032224824269
+          :absolute 400049400
+          :relative 1.6800268453164382
         )
-        :calibrates (14309000 14166600)
+        :calibrates (10939000 5776400)
       ))
     :"jpamb.cases.Simple.assertFalse:()V" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-always
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 444810300
-          :relative 1.6261694161780689
+          :absolute 404317800
+          :relative 1.685702641615718
         )
-        :calibrates (12093000 8946500)
+        :calibrates (8008600 8665800)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-always
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 421462200
-          :relative 1.690050656777158
+          :absolute 381048100
+          :relative 1.676911040315442
         )
-        :calibrates (8302300 8906000)
+        :calibrates (8124800 7911300)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-always
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 630178000
-          :relative 1.7273365484772765
+          :absolute 453185000
+          :relative 1.8014565308212407
         )
-        :calibrates (11652600 11960700)
+        :calibrates (5705500 8611400)
       ))
     :"jpamb.cases.Simple.assertInteger:(I)V" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -1.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok 1.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 422579000
-          :relative 1.6829380309830766
+          :absolute 392811600
+          :relative 1.6830666631715816
         )
-        :calibrates (8235200 9303600)
+        :calibrates (8178800 8119700)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -1.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok 1.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 420513900
-          :relative 1.6928695117263706
+          :absolute 444604300
+          :relative 1.7690585337721445
         )
-        :calibrates (8598700 8459800)
+        :calibrates (5666400 9467300)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -1.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok 1.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 561422200
-          :relative 1.6245343732819901
+          :absolute 479997500
+          :relative 1.7350422529154255
         )
-        :calibrates (10998700 15656700)
+        :calibrates (8337500 9332100)
       ))
     :"jpamb.cases.Simple.assertPositive:(I)V" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -0.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -0.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 426745100
-          :relative 1.6669995540539144
+          :absolute 437327800
+          :relative 1.7316095505130464
         )
-        :calibrates (10019400 8354400)
+        :calibrates (8140600 8086000)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -0.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -0.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 449164600
-          :relative 1.6427315858998934
+          :absolute 519584000
+          :relative 1.7286512794566717
         )
-        :calibrates (8841700 11608800)
+        :calibrates (9972000 9438400)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -0.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -0.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 578925900
-          :relative 1.6095554394950502
+          :absolute 472517200
+          :relative 1.7277124195280487
         )
-        :calibrates (14435600 14015400)
+        :calibrates (8298500 9391800)
       ))
     :"jpamb.cases.Simple.assertTrue:()V" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 424800200
-          :relative 1.6966353140212849
+          :absolute 417023000
+          :relative 1.6802914637459603
         )
-        :calibrates (8281500 8802100)
+        :calibrates (8005500 9408500)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 500500100
-          :relative 1.7341130770309314
+          :absolute 643680300
+          :relative 1.8362104899658171
         )
-        :calibrates (9897500 8566300)
+        :calibrates (9809900 8961200)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 551307000
-          :relative 1.5598557469636214
+          :absolute 490964800
+          :relative 1.7313532450063276
         )
-        :calibrates (15683000 14695600)
+        :calibrates (9613500 8614000)
       ))
     :"jpamb.cases.Simple.checkBeforeAssert:(I)V" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -0.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -0.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 440327000
-          :relative 1.690054273255035
+          :absolute 423678400
+          :relative 1.7459656591056207
         )
-        :calibrates (8304600 9673800)
+        :calibrates (9489000 5720000)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -0.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -0.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 456017400
-          :relative 1.7031614237088166
+          :absolute 628609700
+          :relative 1.8222421066643606
         )
-        :calibrates (8570100 9495400)
+        :calibrates (8152100 10778700)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -0.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -0.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 573654600
-          :relative 1.6139828862078682
+          :absolute 406605200
+          :relative 1.6254068597847475
         )
-        :calibrates (15724000 12182000)
+        :calibrates (10921000 8345200)
       ))
     :"jpamb.cases.Simple.checkBeforeDivideByN2:(I)I" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 450899200
-          :relative 1.70508489487188
+          :absolute 433464200
+          :relative 1.8014021670702927
         )
-        :calibrates (9013400 8770400)
+        :calibrates (5629300 8066300)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 429349800
-          :relative 1.6664184182666721
+          :absolute 460976100
+          :relative 1.6368796648917792
         )
-        :calibrates (8149200 10361500)
+        :calibrates (12130900 9142100)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 573852800
-          :relative 1.6310172466422839
+          :absolute 416107000
+          :relative 1.6415591393352251
         )
-        :calibrates (12450500 14391400)
+        :calibrates (8844800 10151800)
       ))
     :"jpamb.cases.Simple.checkBeforeDivideByN:(I)I" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -1.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok 1.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 507612600
-          :relative 1.7317189885406197
+          :absolute 414255400
+          :relative 1.7069560014788168
         )
-        :calibrates (9133900 9695800)
+        :calibrates (8042200 8226100)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -1.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok 1.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 431372000
-          :relative 1.6743716609851376
+          :absolute 462492900
+          :relative 1.459110813927518
         )
-        :calibrates (8315100 9945300)
+        :calibrates (8427900 23710500)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -1.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok 1.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 559123200
-          :relative 1.614582159498125
+          :absolute 410646600
+          :relative 1.669657260789479
         )
-        :calibrates (13169900 13991700)
+        :calibrates (9158100 8414700)
       ))
     :"jpamb.cases.Simple.divideByN:(I)I" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -1.0
-            :"null pointer" -inf
-            :ok 1.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-sometimes
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 495591200
-          :relative 1.8171795106947088
+          :absolute 408352500
+          :relative 1.5948734303110705
         )
-        :calibrates (8232900 6867000)
+        :calibrates (8075600 12682700)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -1.0
-            :"null pointer" -inf
-            :ok 1.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-sometimes
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 413656800
-          :relative 1.7040328925022052
+          :absolute 518633700
+          :relative 1.648654115333276
         )
-        :calibrates (8246400 8108100)
+        :calibrates (14417600 8876000)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -1.0
-            :"null pointer" -inf
-            :ok 1.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-sometimes
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 607978800
-          :relative 1.6711175896163877
+          :absolute 417146500
+          :relative 1.650162651117433
         )
-        :calibrates (12799400 13130500)
+        :calibrates (8108800 10561700)
       ))
     :"jpamb.cases.Simple.divideByNMinus10054203:(I)I" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 402359200
-          :relative 1.684574135891735
+          :absolute 434150700
+          :relative 1.7033213640809433
         )
-        :calibrates (8178200 8458600)
+        :calibrates (8513400 8679500)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 422589800
-          :relative 1.5660471143861814
+          :absolute 526097500
+          :relative 1.7652366317542645
         )
-        :calibrates (6669500 16286800)
+        :calibrates (8446500 9619400)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 587468100
-          :relative 1.7026415886758133
+          :absolute 419910700
+          :relative 1.647357631621428
         )
-        :calibrates (11104900 12196000)
+        :calibrates (8004600 10911400)
       ))
     :"jpamb.cases.Simple.divideByZero:()I" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-always
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 437804100
-          :relative 1.6572523497327247
+          :absolute 440800600
+          :relative 1.7349777363670749
         )
-        :calibrates (8964900 10312900)
+        :calibrates (8098200 8130900)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-always
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 569937300
-          :relative 1.5924882658176673
+          :absolute 471485500
+          :relative 1.7975913705531286
         )
-        :calibrates (14833300 14298600)
+        :calibrates (9136500 5891700)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" inf
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-always
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 585613600
-          :relative 1.6526700713426203
+          :absolute 413741700
+          :relative 1.6165512703202896
         )
-        :calibrates (11761900 14297900)
+        :calibrates (11826300 8181900)
       ))
     :"jpamb.cases.Simple.divideZeroByZero:(II)I" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -1.0
-            :"null pointer" -inf
-            :ok 1.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-sometimes
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 446351000
-          :relative 1.6213879681307926
+          :absolute 441924600
+          :relative 1.7218114456238613
         )
-        :calibrates (9148800 12197300)
+        :calibrates (8177400 8593900)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -1.0
-            :"null pointer" -inf
-            :ok 1.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-sometimes
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 582305200
-          :relative 1.6054992710894642
+          :absolute 496629700
+          :relative 1.815865303719991
         )
-        :calibrates (14765900 14119700)
+        :calibrates (5676100 9501300)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -1.0
-            :"null pointer" -inf
-            :ok 1.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-sometimes
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 598167600
-          :relative 1.6958628702960639
+          :absolute 435105100
+          :relative 1.7287975308067736
         )
-        :calibrates (12761800 11336700)
+        :calibrates (8134100 8114900)
       ))
     :"jpamb.cases.Simple.doNothing:()V" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 432055600
-          :relative 1.693248765778761
+          :absolute 419856700
+          :relative 1.7197343264610976
         )
-        :calibrates (9135400 8376000)
+        :calibrates (7958300 8051900)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 545226700
-          :relative 1.6183636607983645
+          :absolute 571229400
+          :relative 1.7805660634614315
         )
-        :calibrates (11948500 14308400)
+        :calibrates (9269900 9665500)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 564863500
-          :relative 1.7087777924635033
+          :absolute 411362300
+          :relative 1.7073132832904945
         )
-        :calibrates (11258800 10831200)
+        :calibrates (8152100 7989300)
       ))
     :"jpamb.cases.Simple.earlyReturn:()I" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 459573400
-          :relative 1.740081077861852
+          :absolute 437467300
+          :relative 1.705043009691199
         )
-        :calibrates (8350100 8372500)
+        :calibrates (9319600 7936100)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 579019500
-          :relative 1.6550677857007523
+          :absolute 517554600
+          :relative 1.6567276261901778
         )
-        :calibrates (10811700 14812800)
+        :calibrates (9091600 13725400)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 528064100
-          :relative 1.6361186148154974
+          :absolute 424165900
+          :relative 1.629621020099763
         )
-        :calibrates (12399100 12012600)
+        :calibrates (11858600 8045600)
       ))
     :"jpamb.cases.Simple.justAdd:(II)I" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 438710600
-          :relative 1.7188045657298756
+          :absolute 430364800
+          :relative 1.6873378082742772
         )
-        :calibrates (8279400 8485600)
+        :calibrates (8085900 9596000)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 666303900
-          :relative 1.7006525476243934
+          :absolute 382192600
+          :relative 1.6234174988654422
         )
-        :calibrates (14774000 11775100)
+        :calibrates (9103200 9089400)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 527214500
-          :relative 1.629408800063125
+          :absolute 447833900
+          :relative 1.7281269643007569
         )
-        :calibrates (11992400 12759500)
+        :calibrates (8379100 8371100)
       ))
     :"jpamb.cases.Simple.justMulitply:(II)I" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 431633200
-          :relative 1.6001336393327084
+          :absolute 457758400
+          :relative 1.6371513408522507
         )
-        :calibrates (8171400 13506200)
+        :calibrates (8801700 12309600)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 611135400
-          :relative 1.6205711497680038
+          :absolute 580692900
+          :relative 1.7459558616313458
         )
-        :calibrates (14964900 14316800)
+        :calibrates (12468200 8377700)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 533130200
-          :relative 1.5663392427227683
+          :absolute 485845600
+          :relative 1.6248140068090189
         )
-        :calibrates (14294500 14647200)
+        :calibrates (10598700 12453600)
       ))
     :"jpamb.cases.Simple.justReturn:()I" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 395688900
-          :relative 1.5487042893366036
+          :absolute 482081900
+          :relative 1.8293830794018715
         )
-        :calibrates (13441600 8929100)
+        :calibrates (8567000 5714300)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 602844300
-          :relative 1.6953430198871933
+          :absolute 507098200
+          :relative 1.6790125379805674
         )
-        :calibrates (11883700 12432300)
+        :calibrates (10430500 10807300)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 566084300
-          :relative 1.6723159482183483
+          :absolute 424225000
+          :relative 1.7180803443572972
         )
-        :calibrates (12750100 11326500)
+        :calibrates (8026500 8212000)
       ))
     :"jpamb.cases.Simple.justReturnNothing:()V" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 431704900
-          :relative 1.6536401730316574
+          :absolute 472451200
+          :relative 1.8115936851620318
         )
-        :calibrates (8634400 10533600)
+        :calibrates (5706900 8874300)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 558608200
-          :relative 1.6759306802096514
+          :absolute 444131100
+          :relative 1.6675146352846355
         )
-        :calibrates (13088000 10473700)
+        :calibrates (9430000 9669700)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -inf
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-never
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-always
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 590375000
-          :relative 1.637403875874273
+          :absolute 436505300
+          :relative 1.6994058055439683
         )
-        :calibrates (15240800 11970800)
+        :calibrates (8719200 8723500)
       ))
     :"jpamb.cases.Simple.multiError:(Z)I" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -1.0
-            :"divide by zero" 1.0
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-sometimes
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 489004500
-          :relative 1.7462984064286358
+          :absolute 437563200
+          :relative 1.7059367686159337
         )
-        :calibrates (8331800 9208800)
+        :calibrates (9119000 8105000)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -1.0
-            :"divide by zero" 1.0
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-sometimes
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 568575700
-          :relative 1.689021907089002
+          :absolute 568238100
+          :relative 1.773652448704136
         )
-        :calibrates (10386300 12883700)
+        :calibrates (9734800 9403700)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -1.0
-            :"divide by zero" 1.0
-            :"null pointer" -inf
-            :ok -inf
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-sometimes
+            :"null pointer" npe-never
+            :ok ok-never
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 643168000
-          :relative 1.683831615469695
+          :absolute 406571500
+          :relative 1.679028791667365
         )
-        :calibrates (12793700 13845600)
+        :calibrates (8912900 8114100)
       ))
     :"jpamb.cases.Strings.sayHello:(Ljava/lang/String;)V" ((analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 483391900
-          :relative 1.6565482752759424
+          :absolute 436405200
+          :relative 1.7052374698160082
         )
-        :calibrates (8821500 12498200)
+        :calibrates (8148900 9057200)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 531816900
-          :relative 1.6179672788648276
+          :absolute 486454900
+          :relative 1.5787736156305838
         )
-        :calibrates (11695500 13939000)
+        :calibrates (17255200 8407300)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -0.0
-            :"assertion error" -0.0
-            :"divide by zero" -0.0
-            :"null pointer" -0.0
-            :ok -0.0
-            :"out of bounds" -0.0
+            :* inf-unknown
+            :"assertion error" as-unknown
+            :"divide by zero" dbz-unknown
+            :"null pointer" npe-unknown
+            :ok ok-unknown
+            :"out of bounds" oob-unknown
           )
         )
         :duration (duration
-          :absolute 586395000
-          :relative 1.658179993953636
+          :absolute 359314300
+          :relative 1.7084141678629527
         )
-        :calibrates (13286600 12479000)
+        :calibrates (8161400 5902000)
       ))
     :"jpamb.cases.Tricky.collatz:(I)V" ((analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -0.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -0.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 441239100
-          :relative 1.7038612699471056
+          :absolute 425515800
+          :relative 1.6936931775674098
         )
-        :calibrates (8595900 8856000)
+        :calibrates (8147500 9081200)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -0.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -0.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 569724900
-          :relative 1.5714636919991036
+          :absolute 448906700
+          :relative 1.7316231932353905
         )
-        :calibrates (16102000 14463500)
+        :calibrates (9128800 7526900)
       ) (analysis-result
         :response (response
           :predictions (
-            :* -inf
-            :"assertion error" -0.0
-            :"divide by zero" -inf
-            :"null pointer" -inf
-            :ok -0.0
-            :"out of bounds" -inf
+            :* inf-never
+            :"assertion error" as-sometimes
+            :"divide by zero" dbz-never
+            :"null pointer" npe-never
+            :ok ok-sometimes
+            :"out of bounds" oob-never
           )
         )
         :duration (duration
-          :absolute 547300400
-          :relative 1.6285459962987754
+          :absolute 412999800
+          :relative 1.7419176264146239
         )
-        :calibrates (12819900 12926100)
+        :calibrates (6525400 8439100)
       ))
   )
 )
