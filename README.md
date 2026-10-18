@@ -42,6 +42,29 @@ Both label each prediction by query, such as `npe-no` instead of a shared
 weak group from dragging down a strong one. That is where most of the score
 comes from.
 
+## Static (assignment 3)
+
+This one has two parts, each uploaded to its own assignment on Autolab.
+
+```
+uv run interpret.py --abstract abstract/interpreter.py
+uv run analyse.py static/static.py
+```
+
+The first writes `abstract/report.sexp` for the Abstract Interpreter
+Assignment. The second writes `static/report.sexp` for the Static Assignment.
+
+| File | Score |
+| --- | --- |
+| `abstract/interpreter.py` | 102/118 cases |
+| `static/static.py` | 205.71 |
+
+The abstract interpreter uses the sign abstraction from the course. It does
+not step into called methods, which is why the 16 Calls cases fail. The
+static analysis runs it until nothing changes. A result it never reaches is a
+`no`, and a result it reaches as the only one is a `yes`. Everything else is
+a `maybe`.
+
 ## Adding an analyser
 
 Put the `.py` file in a folder for the assignment and run it the same way.

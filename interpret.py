@@ -1,6 +1,7 @@
 """Run one of our interpreters through JPAMB and write report.sexp next to it.
 
     uv run interpret.py concrete/interpreter.py
+    uv run interpret.py --abstract abstract/interpreter.py
 """
 
 import os
@@ -20,11 +21,15 @@ def from_jpamb(path):
 
 
 def main():
-    if len(sys.argv) != 2:
-        sys.exit("usage: uv run interpret.py <interpreter.py>")
-    interpreter = Path(sys.argv[1]).resolve()
+    args = sys.argv[1:]
+    abstract = "--abstract" in args
+    if abstract:
+        args.remove("--abstract")
+    if len(args) != 1:
+        sys.exit("usage: uv run interpret.py [--abstract] <interpreter.py>")
+    interpreter = Path(args[0]).resolve()
     if not interpreter.is_file():
-        sys.exit(f"no such file: {sys.argv[1]}")
+        sys.exit(f"no such file: {args[0]}")
     if not JPAMB.is_dir():
         sys.exit(f"expected the jpamb clone next to this repo, at {JPAMB}")
 
@@ -33,6 +38,7 @@ def main():
     jpamb = shutil.which("jpamb", path=str(Path(sys.executable).parent))
     result = subprocess.run([
         jpamb, "--workdir", str(JPAMB), "interpret",
+        *(["--abstract"] if abstract else []),
         "--report", from_jpamb(interpreter.parent / "report.sexp"),
         from_jpamb(sys.executable), from_jpamb(interpreter),
     ])
