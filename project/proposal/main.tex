@@ -22,17 +22,16 @@
   columns=fullflexible,
 }
 
-\title{Solving Instead of Guessing: Analysis-Derived Inputs for Finding Errors in JPAMB}
+\title{Smarter Fuzzing: Using Constants and Static Analysis to Find Errors in JPAMB}
 
-% TODO: fill in names, emails and student numbers.
-\author{Student One}
-\email{sXXXXXX@dtu.dk}
-\author{Student Two}
-\email{sXXXXXX@dtu.dk}
-\author{Student Three}
-\email{sXXXXXX@dtu.dk}
+\author{Ari Gunnar Kristjónsson}
+\email{s253023@dtu.dk}
+\author{Brynja Eyfjörð Jónsdóttir}
+\email{s221901@dtu.dk}
+\author{Egill Magnússon}
+\email{s253025@dtu.dk}
 \affiliation{%
-  \institution{DTU Compute - Group ABE}
+  \institution{DTU Compute - Group 23}
   \city{Kgs. Lyngby}
   \country{Denmark}}
 
@@ -43,22 +42,22 @@
 \section{Introduction}
 
 \paragraph{Context}
-A program analysis answers questions about a program without the developer
-having to run every input by hand: can this method divide by zero, can it
-fail an assertion, can it loop forever? The JPAMB benchmark~\citep{jpamb}
-asks exactly these questions for a suite of small Java methods, and scores
-an analysis by how well it predicts which outcomes can happen.
+In this course we have built analyses that try to answer questions about Java
+methods, like can this method divide by zero, can an assertion fail, or can
+it loop forever. The JPAMB benchmark\footnote{\url{https://github.com/kalhauge/jpamb}}
+has a set of small Java methods with these questions, and gives a score based
+on how good the analysis predicts what can happen.
 
-The two families of analysis in this course answer these questions from
-opposite sides. A \emph{static analysis} based on abstract
-interpretation~\citep{cousot1977} over-approximates every execution, so when
-it never reaches an outcome, the outcome is impossible. When it does reach
-the outcome, it cannot tell a real error from an artefact of the
-abstraction. A \emph{dynamic analysis} runs the program on concrete inputs,
-so every error it observes is real and comes with a witness input, but when
-it observes nothing, it has proven nothing.
+So far we have tried two kinds of analysis. A static analysis, like our
+abstract interpreter, looks at all possible executions at once. If it never
+reach an outcome, the outcome can not happen, so we can say ``no'' with
+confidence. But if it does reach it, we don't know if it is a real error or
+only because the abstraction is not precise enough. A dynamic analysis does
+the opposite and runs the method on real inputs. When it finds an error, the
+error is real and we have the input that caused it. But when it finds
+nothing, it does not prove anything.
 
-\begin{lstlisting}[float, label=lst:example, caption={Two JPAMB methods whose errors are guarded by specific values.}]
+\begin{lstlisting}[float, label=lst:example, caption={Two JPAMB methods where the error only happens for specific values.}]
 public static int divideByNMinus10054203(int n) {
   return 1 / (n - 10054203);       // divides by zero only for n = 10054203
 }
@@ -72,110 +71,100 @@ public static void divisionLoop(int n) {
 \end{lstlisting}
 
 \paragraph{Gap}
-The errors that matter are usually guarded by specific values, as in
-\cref{lst:example}. For the first method, a static analysis with intervals
-sees that the divisor may be zero, but can only answer ``maybe''. A random
-fuzzer tries values uniformly from the $2^{32}$ possible integers and hits
-\texttt{10054203} with probability $2^{-32}$ per run, while testing small
-values close to zero never hits it. Neither family produces a confident
-``yes''.
+The problem is that errors are often hidden behind specific values, like in
+\cref{lst:example}. In the first method, the division is only by zero when
+$n = 10054203$. An interval analysis can see that the divisor could be zero,
+but it can only say ``maybe''. A random fuzzer picks from all $2^{32}$
+integers, so the chance to hit the right value is $2^{-32}$ for each try. Our
+dynamic analysis from earlier only tries small values close to zero, so it
+never finds it. So none of them can say ``yes''.
 
-The second method shows a further problem with relying on the benchmark
-score alone. JPAMB takes its ground truth from the inputs listed in each
-case, and for \texttt{divisionLoop} it lists only $n = 0$ and $n = 1$, both
-of which terminate normally. The assertion error for $n = 1024$ is real, but
-the benchmark counts it as impossible. An analysis can therefore score well
-by fitting the listed cases, for example a syntactic analysis that matches
-patterns in the source, without its answers being backed by any evidence.
-High JPAMB scores are achievable this way, which makes the score a weak
-signal on its own.
+The second method shows another problem, this time with the benchmark itself.
+JPAMB gets the correct answers from the inputs that are listed for each case,
+and for \texttt{divisionLoop} only $n = 0$ and $n = 1$ are listed. Both of them
+terminate normally. So the assertion error for $n = 1024$ is real, but the
+benchmark says it can not happen. This means an analysis can get a high score
+just by fitting the listed cases, for example a syntactic analysis that looks
+for patterns in the code, without really knowing anything about the program.
+Because of this we don't think the score alone says very much.
 
 \paragraph{Innovation}
-We propose to stop guessing inputs, and instead \emph{derive} them from the
-program, using one analysis to inform the next:
+Our idea is to not guess the inputs, but to find them from the program
+itself. Each analysis gives information to the next one:
 \begin{enumerate}
-  \item A \textbf{syntactic analysis} extracts the constants that appear in
-    the bytecode, such as \texttt{10054203} and \texttt{32}.
-  \item An \textbf{unbounded static analysis} with an interval abstraction
-    and widening runs to a fixpoint. Every outcome it never reaches is
-    reported as a sound ``no'', and is removed from the search.
-  \item For every outcome still open, a \textbf{target-directed input
-    generator} locates the instruction that can cause it (a division, an
-    array access, or the comparison guarding an assertion), and walks back
-    through the arithmetic between a parameter and that instruction,
-    inverting addition, subtraction, multiplication and division to solve
-    for the input that reaches the boundary. For \cref{lst:example}, this
-    gives $n = 10054203$ for the first method and $n = 32 \cdot 2^5 = 1024$
-    for the second. Where inversion is not possible, the generator falls back
-    to the extracted constants, their neighbours $c-1, c, c+1$, and boundary
-    values such as $0$, $\pm 1$ and the ends of the integer range.
-  \item A \textbf{concrete interpreter} runs the generated inputs. An input
-    that triggers the outcome is a witness, and the answer is a confident
-    ``yes''.
+  \item A \textbf{syntactic analysis} finds the constants in the bytecode,
+    like \texttt{10054203} and \texttt{32}.
+  \item A \textbf{static analysis} with intervals and widening runs until it
+    reaches a fixpoint. Outcomes it never reach are answered with ``no'',
+    and we don't need to search for them.
+  \item For the outcomes that are left, an \textbf{input generator} finds the
+    instruction that can cause it (a division, an array access or the check
+    before an assertion). Then it goes backwards through the arithmetic
+    between the parameter and that instruction, and inverts it (addition,
+    subtraction, multiplication and division) to solve for the input. For
+    \cref{lst:example} this gives $n = 10054203$ for the first method and
+    $n = 32 \cdot 2^5 = 1024$ for the second. If it can not invert the
+    arithmetic, it falls back to the constants, their neighbours $c-1, c,
+    c+1$, and values like $0$, $\pm 1$ and the smallest and largest int.
+  \item A \textbf{concrete interpreter} runs the inputs. If an input causes
+    the outcome, we answer ``yes'' and we have the input as proof.
 \end{enumerate}
-The result is deterministic, and every confident answer is backed by either
-a proof (``no'') or a witness (``yes'').
+The whole thing is deterministic, and every confident answer has a reason
+behind it: a proof for ``no'' and an input for ``yes''.
 
-We will answer the following research questions:
+We want to answer these research questions:
 \begin{description}
-  \item[RQ1] Do analysis-derived inputs find error-triggering inputs more
-    reliably, and with fewer executions, than random fuzzing and small-value
-    testing?
-  \item[RQ2] How much of the search does static pruning remove?
-  \item[RQ3] Does the approach hold up on programs it was not developed
-    against, compared with a syntactic analysis?
+  \item[RQ1] Do our generated inputs find errors more often, and with fewer
+    runs, than random fuzzing and testing small values?
+  \item[RQ2] How much of the search can the static analysis remove?
+  \item[RQ3] Does it still work on programs we did not use while building it,
+    compared to a syntactic analysis?
 \end{description}
 
-Our contributions will be:
+We will make:
 \begin{itemize}
   \item an interval abstract interpreter with widening for JPAMB,
-  \item a target-directed input generator that inverts arithmetic to solve
-    for error-triggering inputs,
-  \item a pipeline in which syntactic and static results guide the dynamic
+  \item an input generator that inverts arithmetic to find inputs that cause
+    errors,
+  \item a pipeline where the syntactic and static results guide the dynamic
     analysis,
-  \item a set of new benchmark methods with errors guarded by specific
-    values, and
-  \item an empirical comparison against random fuzzing, small-value testing
-    and syntactic analysis.
+  \item new benchmark methods where the errors are behind specific values,
+  \item a comparison with random fuzzing, small value testing and syntactic
+    analysis.
 \end{itemize}
 
 \paragraph{Evaluation}
-We evaluate on two benchmark sets: the JPAMB suite, and a held-out set of
-around 20 new methods that we write \emph{before} implementing the input
-generator, with errors behind magic constants, chains of arithmetic, and
-loops that transform the input. We will submit some of them to JPAMB.
+We test on two sets. The first is the JPAMB suite. The second is around 20
+new methods that we write ourself \emph{before} we build the input generator,
+with errors behind magic constants, chains of arithmetic, and loops that
+change the input. We will try to get some of them added to JPAMB.
 
-We compare the full pipeline against five baselines: the syntactic analysis,
-random fuzzing, small-value testing (our dynamic analysis), the generator
-using only extracted constants, and the full pipeline without static
-pruning. Since the JPAMB score can saturate, we also measure the number of
-executions before the first witness, the number of answers left as
-``maybe'', the share of answers backed by a proof or a witness, and the
-running time. Random baselines are repeated 10 times, and we report the mean
-and standard deviation. Witnesses that contradict the benchmark's ground
-truth, as for \texttt{divisionLoop}, are reported separately.
+We compare the full pipeline with five baselines: the syntactic analysis,
+random fuzzing, small value testing (our dynamic analysis), the generator
+with only the constants, and the pipeline without the static analysis.
+Because the JPAMB score can get close to the max, we also measure how many
+runs it takes before the first error is found, how many answers are still
+``maybe'', how many answers are backed by a proof or an input, and the
+running time. The random baseline is run 10 times and we report the mean and
+standard deviation. If we find an error that the benchmark says is
+impossible, like in \texttt{divisionLoop}, we report it separately.
 
-The main threats to validity are that both benchmark sets are small and
-synthetic, and that we write the held-out set ourselves. We reduce the
-second by writing the held-out methods before the generator exists, and by
-not changing the generator after seeing its results on them.
-
-\bibliographystyle{ACM-Reference-Format}
-\bibliography{bibfile}
+The biggest threats to validity are that both sets are small and made up,
+and that we write the second set ourself. To reduce this, we write the
+methods before the generator exist, and we don't change the generator after
+we see the results on them.
 
 \appendix
 
 \section{Plan}
 
-\Cref{tab:contributions} lists the technical contributions and how the
-points are distributed between us. \Cref{fig:timeline} shows the plan. We
-first write the held-out benchmark methods, so they are fixed before the
-input generator exists. We then build the interval analysis and the
-generator in parallel, join them into the pipeline, and run the evaluation.
-We aim to have new benchmark methods accepted into JPAMB before the 16th of
-November.
+\Cref{tab:contributions} shows the technical contributions and how we split
+the points. \Cref{fig:timeline} shows the plan. First we write the new
+benchmark methods, so they are done before the input generator exists. Then
+we build the interval analysis and the generator at the same time, put them
+together in the pipeline, and run the evaluation. We want to get new methods
+into JPAMB before 16 November.
 
-% TODO: check the paper and presentation dates on LEARN.
 \begin{figure}[h]
 \centering
 \caption{Project Timeline}
@@ -183,7 +172,6 @@ November.
 \begin{ganttchart}[
     hgrid,
     time slot format=isodate,
-    today=2026-10-19,
     expand chart=\linewidth,
     vgrid={*5{white}, *2{dotted}},
     y unit chart=0.5cm,
@@ -192,33 +180,32 @@ November.
     milestone label font=\bfseries\footnotesize,
     vrule/.style={very thick, red},
     vrule label font=\footnotesize\bfseries
-  ]{2026-10-12}{2026-12-14}
+  ]{2026-10-12}{2026-12-13}
   \gantttitlecalendar{month=shortname} \\
   % --- Phase 1: benchmark and analyses ---
-  \ganttbar{Write held-out benchmark methods}{2026-10-20}{2026-10-30} \\
+  \ganttbar{Write new benchmark methods}{2026-10-20}{2026-10-30} \\
   \ganttbar{Submit methods to JPAMB}{2026-10-28}{2026-11-13} \\
   \ganttbar{Constant extraction}{2026-10-20}{2026-10-27} \\
   \ganttbar{Interval analysis with widening}{2026-10-20}{2026-11-06} \\
-  \ganttbar{Target-directed input generator}{2026-10-27}{2026-11-13} \\
+  \ganttbar{Input generator}{2026-10-27}{2026-11-13} \\
   % --- Phase 2: integration and evaluation ---
-  \ganttbar{Integrate into pipeline}{2026-11-09}{2026-11-20} \\
+  \ganttbar{Put together into pipeline}{2026-11-09}{2026-11-20} \\
   \ganttbar{Run evaluation and statistics}{2026-11-16}{2026-11-27} \\
   % --- Phase 3: writing ---
-  \ganttbar{Read and relate to papers}{2026-10-26}{2026-11-20} \\
-  \ganttbar{Write paper}{2026-11-09}{2026-12-01} \\
-  \ganttbar{Record video}{2026-12-02}{2026-12-07}
+  \ganttbar{Read related papers}{2026-10-26}{2026-11-20} \\
+  \ganttbar{Write paper}{2026-11-09}{2026-11-29} \\
+  \ganttbar{Record video}{2026-11-30}{2026-12-06}
 
   \ganttvrule[vrule label node/.append style={anchor=north west}]{Proposal}{2026-10-19}
   \ganttvrule{JPAMB}{2026-11-16}
-  \ganttvrule{Paper}{2026-12-01}
-  \ganttvrule{Present}{2026-12-10}
+  \ganttvrule{Paper}{2026-11-29}
+  \ganttvrule{Video}{2026-12-06}
 \end{ganttchart}
 \end{figure}
 
-% TODO: replace S1-S3 with names and student numbers.
 \begin{table}[h]
     \centering
-    \caption{Contributions, $S_1$ is Student One (sXXXXXX), $S_2$ is Student Two (sXXXXXX), $S_3$ is Student Three (sXXXXXX).}
+    \caption{Contributions, $S_1$ is Ari (s253023), $S_2$ is Brynja (s221901), $S_3$ is Egill (s253025).}
     \begin{tabular}{@{}llrrrr@{}} \toprule
          ID & Contribution & P & $S_1$ & $S_2$ & $S_3$ \\
          \midrule
