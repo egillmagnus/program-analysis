@@ -112,47 +112,74 @@ itself. Each analysis gives information to the next one:
 The whole thing is deterministic, and every confident answer has a reason
 behind it: a proof for ``no'' and an input for ``yes''.
 
+It is clear that solving for \texttt{10054203} is better than guessing it, so
+the interesting part is not if the approach works on cases like
+\cref{lst:example}, but how far it gets and where it stops working. Inverting
+the arithmetic gets harder with loops that run an unknown number of times,
+with conditions on more than one parameter, with nonlinear arithmetic like
+$x \cdot y$, and with arrays. We want to find out where the line is.
+
 We want to answer these research questions:
 \begin{description}
-  \item[RQ1] Do our generated inputs find errors more often, and with fewer
-    runs, than random fuzzing and testing small values?
-  \item[RQ2] How much of the search can the static analysis remove?
-  \item[RQ3] Does it still work on programs we did not use while building it,
-    compared to a syntactic analysis?
+  \item[RQ1] Which kinds of conditions can the generator solve, and where does
+    it have to fall back to guessing or give up?
+  \item[RQ2] How much does the static analysis help, in fewer runs and fewer
+    ``maybe'' answers?
+  \item[RQ3] How does the pipeline compare with random fuzzing, small value
+    testing and the syntactic analysis on the JPAMB methods, that we did not write ourself?
 \end{description}
 
-We will make:
+From the assignments we already have a concrete interpreter, a sign analysis
+and a small value tester. New in the project are:
 \begin{itemize}
-  \item an interval abstract interpreter with widening for JPAMB,
+  \item an interval abstract interpreter with widening for JPAMB, and a proof
+    that the widening terminates,
   \item an input generator that inverts arithmetic to find inputs that cause
     errors,
   \item a pipeline where the syntactic and static results guide the dynamic
     analysis,
-  \item new benchmark methods where the errors are behind specific values,
+  \item new benchmark methods, sorted by the kind of condition that guards
+    the error,
   \item a comparison with random fuzzing, small value testing and syntactic
     analysis.
 \end{itemize}
 
 \paragraph{Evaluation}
-We test on two sets. The first is the JPAMB suite. The second is around 20
-new methods that we write ourself \emph{before} we build the input generator,
-with errors behind magic constants, chains of arithmetic, and loops that
-change the input. We will try to get some of them added to JPAMB.
+We use two sets of methods. The first is the JPAMB suite. We did not write it
+and it is not made with our approach in mind, so it is the most fair test,
+and we use it to answer RQ2 and RQ3. If other groups add methods to JPAMB
+before 16 November, we test on them too, since we did not write them either.
 
-We compare the full pipeline with five baselines: the syntactic analysis,
-random fuzzing, small value testing (our dynamic analysis), the generator
-with only the constants, and the pipeline without the static analysis.
-Because the JPAMB score can get close to the max, we also measure how many
-runs it takes before the first error is found, how many answers are still
-``maybe'', how many answers are backed by a proof or an input, and the
-running time. The random baseline is run 10 times and we report the mean and
-standard deviation. If we find an error that the benchmark says is
-impossible, like in \texttt{divisionLoop}, we report it separately.
+The second set is around 20 methods we write ourself, in categories: magic
+constants, chains of arithmetic, loops that change the input, conditions on
+two parameters, nonlinear arithmetic, and arrays. For some categories we
+expect the generator to work and for others we expect it to fail, and we
+write about the same number of methods in each. We only use this set for RQ1,
+to show the limits of the approach, not to show that it wins. We will also
+submit 5 of them to JPAMB before 16 November, as the EXB contribution.
 
-The biggest threats to validity are that both sets are small and made up,
-and that we write the second set ourself. To reduce this, we write the
-methods before the generator exist, and we don't change the generator after
-we see the results on them.
+We compare the full pipeline with two kinds of other analyses. The
+\emph{baselines} are the other ways to answer the same questions: our best
+syntactic analysis from the first assignment, which already gets a high JPAMB
+score just by fitting the cases, random fuzzing, and small value testing (our
+dynamic analysis). The \emph{ablations} are the pipeline with one part taken
+out: the generator with only the constants, and the pipeline without the
+static analysis. These are not meant to be strong, they show how much each
+part adds (RQ2).
+
+Because the JPAMB score can get close to the max, the score alone does not
+show much difference. So we also measure how many runs it takes before the
+first error is found, how many answers are still ``maybe'', how many answers
+are backed by a proof or an input, and the running time. The syntactic
+analysis can score high, but none of its answers are backed by anything. The
+random baseline is run 10 times and we report the mean and standard
+deviation. If we find an error that the benchmark says is impossible, like in
+\texttt{divisionLoop}, we report it separately.
+
+The biggest threat to validity is that both sets are small and made up, and
+that we write the second set ourself, so it can be biased towards our
+approach. We report the results for every category, also the ones where it
+fails.
 
 \appendix
 
@@ -188,6 +215,7 @@ into JPAMB before 16 November.
   \ganttbar{Constant extraction}{2026-10-20}{2026-10-27} \\
   \ganttbar{Interval analysis with widening}{2026-10-20}{2026-11-06} \\
   \ganttbar{Input generator}{2026-10-27}{2026-11-13} \\
+  \ganttbar{Prove widening terminates}{2026-11-02}{2026-11-13} \\
   % --- Phase 2: integration and evaluation ---
   \ganttbar{Put together into pipeline}{2026-11-09}{2026-11-20} \\
   \ganttbar{Run evaluation and statistics}{2026-11-16}{2026-11-27} \\
@@ -215,10 +243,11 @@ into JPAMB before 16 November.
          \texttt{NAN} & Integrate Analyses (3) & 10 & 4 & 2 & 4 \\
          \texttt{EXB} & Extend Benchmark Suite & 5 & 1 & 1 & 3 \\
          \texttt{EST} & Do Statistical Analysis of Results & 5 & 0 & 0 & 5 \\
-         \texttt{PWP} & Write Paper & 10 & 4 & 3 & 3 \\
+         \texttt{TWI} & Prove termination for widening (intervals) & 5 & 0 & 2 & 3 \\
+         \texttt{PWP} & Write Paper & 8 & 3 & 3 & 2 \\
          \texttt{PEX} & Find Illustrating Examples & 4 & 2 & 0 & 2 \\
          \texttt{PDI} & Create a Process Diagram & 3 & 3 & 0 & 0 \\
-         \texttt{PRW} & Read and relate to recent papers & 6 & 1 & 2 & 3 \\
+         \texttt{PRW} & Read and relate to recent papers & 3 & 2 & 0 & 1 \\
          \midrule
          \multicolumn{2}{l}{Total} & 60 & 20 & 20 & 20 \\
          \multicolumn{2}{l}{Suggested Max Grade} & - & 12 & 12 & 12 \\
