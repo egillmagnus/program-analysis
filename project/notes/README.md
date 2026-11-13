@@ -56,11 +56,27 @@ and Group 7 (PR #79) adds more.
 | `linearChain` | arithmetic chain | x = 1337 → divide by zero | fuzzer 1 in 2^32; intervals only say the divisor *may* be 0 |
 | `loopDoubling` | loop changes input | n = 24 → assertion error | 16 witnesses with overflow (24 + k·2^28), why we need bit-vectors |
 | `twoParams` | two parameters | (71, 29) → divide by zero | intervals are non-relational, cannot see a + b = 100 |
-| `productFactors` | nonlinear | (17, 23) → assertion error | a·b is hard for intervals and slower for Z3 |
+| `productFactors` | nonlinear | (17, 23) and overflow (1227133569, 7) → assertion error | a·b is hard for intervals and slower for Z3; an analysis using math integers misses the overflow witnesses |
 | `tableLookup` | arrays | 0 → out of bounds, 999993 → divide by zero | SE needs array theory; fuzzer finds only the out of bounds |
 
-Status: `jpamb build` passes, all 12 `@Case` lines give the annotated
-outcome (branch `group23-hidden-values` in Egill's local JPAMB clone). The
+Each method has a **safe twin** that looks almost the same but never fails.
+These test whether an analysis can *exclude* an error, which a syntactic
+guess cannot (it says "yes" whenever it sees a division or an assert).
+
+| Twin | Why it is safe | What can prove it |
+|---|---|---|
+| `linearChainGuarded` | for 0 < x < 1000 the divisor is in -4008..-1014 | intervals (narrowing at the `if`) |
+| `loopDoublingSafe` | 16n + 15 is always odd, never 400 | SE + Z3 after unrolling 4 times; not intervals |
+| `twoParamsSafe` | needs 2a = 143 (mod 2^32), but 2a is even | SE + Z3; intervals are non-relational |
+| `productFactorsSafe` | 389 is prime, no overflow below 99·99 | SE + Z3; not intervals |
+| `tableLookupSafe` | index checked first, no table value is 16 | intervals for the bounds, Z3 for the contents |
+
+Open design question: in the proposal only the interval analysis gives
+*excluded*. If SE explores every path without hitting the bound k, unsat on
+all of them is also a proof, so SE should be allowed to exclude too.
+
+Status: the 5 original methods pass `jpamb build` (all `@Case` lines give the annotated
+outcome; the twins still need one build before the PR) on branch `group23-hidden-values` in Egill's local JPAMB clone. The
 class must also be added to the list in `cases/jpamb/Runtime.java`, and the
 build regenerates `OPCODES.md`, `target/stats/cases.txt` and the class/json
 files, same as Group 7's PR #79. To submit: fork kalhauge/jpamb, push the
