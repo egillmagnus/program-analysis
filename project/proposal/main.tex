@@ -14,15 +14,24 @@
 \crefname{lstlisting}{listing}{listings}
 \Crefname{lstlisting}{Listing}{Listings}
 
+\begin{filecontents*}[overwrite]{references.bib}
+@article{prenner2023runbugrun,
+  author  = {Prenner, Julian Aron and Robbes, Romain},
+  title   = {{RunBugRun}: An Executable Dataset for Automated Program Repair},
+  journal = {arXiv preprint arXiv:2304.01102},
+  year    = {2023},
+}
+\end{filecontents*}
+
 \lstset{
   language=Java,
-  basicstyle=\ttfamily\small,
+  basicstyle=\ttfamily\footnotesize,
   keywordstyle=\bfseries,
   commentstyle=\itshape\color[rgb]{0.4,0.4,0.4},
   columns=fullflexible,
 }
 
-\title{Smarter Fuzzing: Using Constants and Static Analysis to Find Errors in JPAMB}
+\title{Proofs and Witnesses: Integrating Interval Analysis and Symbolic Execution for Java Bytecode}
 
 \author{Ari Gunnar Kristjónsson}
 \email{s253023@dtu.dk}
@@ -42,157 +51,82 @@
 \section{Introduction}
 
 \paragraph{Context}
-In this course we have built analyses that try to answer questions about Java
-methods, like can this method divide by zero, can an assertion fail, or can
-it loop forever. The JPAMB benchmark\footnote{\url{https://github.com/kalhauge/jpamb}}
-has a set of small Java methods with these questions, and gives a score based
-on how good the analysis predicts what can happen.
+Runtime errors that occur only for particular input values are hard to find
+by testing. In a dataset of buggy competition programs,
+\citet{prenner2023runbugrun} find that
+\texttt{ArrayIndexOutOf\-BoundsException} is the most common exception in Java,
+at 36.99\% of thrown exceptions, and \texttt{ArithmeticException} accounts for
+5.23\%. In \cref{lst:example}, taken from the JPAMB
+benchmark\footnote{\url{https://github.com/kalhauge/jpamb}}, the first method
+divides by zero for a single input, and the second fails its assertion for 32
+of the $2^{32}$ possible inputs. We study JPAMB's prediction problem: given a method $m$ and an outcome $o$
+(\texttt{ok}, an error such as $\mathrm{err}(\text{`divide by zero'})$, or
+non-termination \texttt{*}), decide whether some $\tau \in \mathrm{Sem}(m)$
+ends in $o$.
 
-So far we have tried two kinds of analysis. A static analysis, like our
-abstract interpreter, looks at all possible executions at once. If it never
-reach an outcome, the outcome can not happen, so we can say ``no'' with
-confidence. But if it does reach it, we don't know if it is a real error or
-only because the abstraction is not precise enough. A dynamic analysis does
-the opposite and runs the method on real inputs. When it finds an error, the
-error is real and we have the input that caused it. But when it finds
-nothing, it does not prove anything.
-
-\begin{lstlisting}[float, label=lst:example, caption={Two JPAMB methods where the error only happens for specific values.}]
+\begin{lstlisting}[float, label=lst:example, caption={Two JPAMB methods in which an error occurs only for specific values.}]
 public static int divideByNMinus10054203(int n) {
   return 1 / (n - 10054203);       // divides by zero only for n = 10054203
 }
-
 public static void divisionLoop(int n) {
-  for (int i = 0; i < 5; i++) {
-    n /= 2;
-  }
+  for (int i = 0; i < 5; i++) { n /= 2; }
   assert n != 32;                  // fails only for 1024 <= n <= 1055
 }
 \end{lstlisting}
 
 \paragraph{Gap}
-The problem is that errors are often hidden behind specific values, like in
-\cref{lst:example}. In the first method, the division is only by zero when
-$n = 10054203$. An interval analysis can see that the divisor could be zero,
-but it can only say ``maybe''. A random fuzzer picks from all $2^{32}$
-integers, so the chance to hit the right value is $2^{-32}$ for each try. Our
-dynamic analysis from earlier only tries small values close to zero, so it
-never finds it. So none of them can say ``yes''.
-
-The second method shows another problem, this time with the benchmark itself.
-JPAMB gets the correct answers from the inputs that are listed for each case,
-and for \texttt{divisionLoop} only $n = 0$ and $n = 1$ are listed. Both of them
-terminate normally. So the assertion error for $n = 1024$ is real, but the
-benchmark says it can not happen. This means an analysis can get a high score
-just by fitting the listed cases, for example a syntactic analysis that looks
-for patterns in the code, without really knowing anything about the program.
-Because of this we don't think the score alone says very much.
+No single standard technique answers this question in both directions.
+Interval analysis can prove that an outcome is unreachable, but otherwise only
+answers ``maybe'': in \cref{lst:example} the interval of each checked
+expression contains the error value. Dynamic analysis can only show that an outcome occurs, and random testing
+finds the first error with probability $2^{-32}$ per execution. Symbolic
+execution solves for an input directly, but must bound the search in methods
+with loops, and a search that stops at the bound proves nothing about longer
+traces. What is missing is a prediction for each outcome that is backed on both
+sides: a proof over all traces for ``no'' and a concrete input for ``yes''.
 
 \paragraph{Innovation}
-Our idea is to not guess the inputs, but to find them from the program
-itself. Each analysis gives information to the next one:
+Our key insight is that interval analysis and symbolic execution fail in
+complementary ways, so we integrate them such that each analysis uses the
+result of the previous one:
 \begin{enumerate}
-  \item A \textbf{syntactic analysis} finds the constants in the bytecode,
-    like \texttt{10054203} and \texttt{32}.
-  \item A \textbf{static analysis} with intervals and widening runs until it
-    reaches a fixpoint. Outcomes it never reach are answered with ``no'',
-    and we don't need to search for them.
-  \item For the outcomes that are left, an \textbf{input generator} finds the
-    instruction that can cause it (a division, an array access or the check
-    before an assertion). Then it goes backwards through the arithmetic
-    between the parameter and that instruction, and inverts it (addition,
-    subtraction, multiplication and division) to solve for the input. For
-    \cref{lst:example} this gives $n = 10054203$ for the first method and
-    $n = 32 \cdot 2^5 = 1024$ for the second. If it can not invert the
-    arithmetic, it falls back to the constants, their neighbours $c-1, c,
-    c+1$, and values like $0$, $\pm 1$ and the smallest and largest int.
-  \item A \textbf{concrete interpreter} runs the inputs. If an input causes
-    the outcome, we answer ``yes'' and we have the input as proof.
+  \item A \textbf{syntactic analysis} collects the constants $K$ in the bytecode,
+    such as \texttt{10054203} and \texttt{32}, as thresholds for the widening $\nabla$, which keeps these bounds while still
+    terminating.
+  \item An \textbf{interval analysis} computes a fixed point that
+    over-approximates $\mathrm{Sem}(m)$ and excludes every outcome it never
+    reaches.
+  \item \textbf{Symbolic execution} explores only branches reaching an
+    instruction where the fixed point admits the outcome, and asks Z3 to solve
+    the path constraint $\psi$ with the error condition.
+  \item The \textbf{interpreter} replays each model; a trace ending in the outcome
+    witnesses it.
 \end{enumerate}
-The whole thing is deterministic, and every confident answer has a reason
-behind it: a proof for ``no'' and an input for ``yes''.
-
-It is clear that solving for \texttt{10054203} is better than guessing it, so
-the interesting part is not if the approach works on cases like
-\cref{lst:example}, but how far it gets and where it stops working. Inverting
-the arithmetic gets harder with loops that run an unknown number of times,
-with conditions on more than one parameter, with nonlinear arithmetic like
-$x \cdot y$, and with arrays. We want to find out where the line is.
-
-We want to answer these research questions:
-\begin{description}
-  \item[RQ1] Which kinds of conditions can the generator solve, and where does
-    it have to fall back to guessing or give up?
-  \item[RQ2] How much does the static analysis help, in fewer runs and fewer
-    ``maybe'' answers?
-  \item[RQ3] How does the pipeline compare with random fuzzing, small value
-    testing and the syntactic analysis on the JPAMB methods, that we did not write ourself?
-\end{description}
-
-From the assignments we already have a concrete interpreter, a sign analysis
-and a small value tester. New in the project are:
-\begin{itemize}
-  \item an interval abstract interpreter with widening for JPAMB, and a proof
-    that the widening terminates,
-  \item an input generator that inverts arithmetic to find inputs that cause
-    errors,
-  \item a pipeline where the syntactic and static results guide the dynamic
-    analysis,
-  \item new benchmark methods, sorted by the kind of condition that guards
-    the error,
-  \item a comparison with random fuzzing, small value testing and syntactic
-    analysis.
-\end{itemize}
+To handle its limitations, symbolic execution unrolls loops and inlines calls
+up to a bound $k$, and a path beyond $k$ or a solver timeout leaves the outcome
+undecided. Integers are 32-bit bit-vectors and arrays use Z3's array theory;
+objects, strings and floats are out of scope. An acyclic method without calls
+cannot produce \texttt{*}, and if the fixed point reaches no final state,
+\texttt{*} occurs. Otherwise \texttt{*} stays undecided, as termination is
+undecidable in general and ranking functions are out of scope.
 
 \paragraph{Evaluation}
-We use two sets of methods. The first is the JPAMB suite. We did not write it
-and it is not made with our approach in mind, so it is the most fair test,
-and we use it to answer RQ2 and RQ3. If other groups add methods to JPAMB
-before 16 November, we test on them too, since we did not write them either.
-
-The second set is around 20 methods we write ourself, in categories: magic
-constants, chains of arithmetic, loops that change the input, conditions on
-two parameters, nonlinear arithmetic, and arrays. For some categories we
-expect the generator to work and for others we expect it to fail, and we
-write about the same number of methods in each. We only use this set for RQ1,
-to show the limits of the approach, not to show that it wins. We will also
-submit 5 of them to JPAMB before 16 November, as the EXB contribution.
-
-We compare the full pipeline with two kinds of other analyses. The
-\emph{baselines} are the other ways to answer the same questions: our best
-syntactic analysis from the first assignment, which already gets a high JPAMB
-score just by fitting the cases, random fuzzing, and small value testing (our
-dynamic analysis). The \emph{ablations} are the pipeline with one part taken
-out: the generator with only the constants, and the pipeline without the
-static analysis. These are not meant to be strong, they show how much each
-part adds (RQ2).
-
-Because the JPAMB score can get close to the max, the score alone does not
-show much difference. So we also measure how many runs it takes before the
-first error is found, how many answers are still ``maybe'', how many answers
-are backed by a proof or an input, and the running time. The syntactic
-analysis can score high, but none of its answers are backed by anything. The
-random baseline is run 10 times and we report the mean and standard
-deviation. If we find an error that the benchmark says is impossible, like in
-\texttt{divisionLoop}, we report it separately.
-
-The biggest threat to validity is that both sets are small and made up, and
-that we write the second set ourself, so it can be biased towards our
-approach. We report the results for every category, also the ones where it
-fails.
+The pipeline gives each pair $(m, o)$ one verdict: witnessed, excluded or
+undecided. The gap is closed if (i) every witness replays and no excluded
+outcome occurs in JPAMB's listed cases, and (ii) the pipeline decides more pairs
+than the interval analysis and symbolic execution run separately. We also measure how pruning reduces explored paths, solver calls and running
+time, and
+compare with random fuzzing and small-value testing. Besides JPAMB, whose
+\texttt{@Case} annotations serve only for evaluation, we write 24 methods, four
+in each of six categories (magic constants, arithmetic chains, input-changing
+loops, two-parameter conditions, nonlinear arithmetic, arrays), and submit five
+to JPAMB. Ablations remove the pruning or $K$, and for random fuzzing we report the mean and standard deviation over 10 runs.
 
 \appendix
 
 \section{Plan}
 
-\Cref{tab:contributions} shows the technical contributions and how we split
-the points. \Cref{fig:timeline} shows the plan. First we write the new
-benchmark methods, so they are done before the input generator exists. Then
-we build the interval analysis and the generator at the same time, put them
-together in the pipeline, and run the evaluation. We want to get new methods
-into JPAMB before 16 November.
-
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \caption{Project Timeline}
 \label{fig:timeline}
@@ -201,7 +135,7 @@ into JPAMB before 16 November.
     time slot format=isodate,
     expand chart=\linewidth,
     vgrid={*5{white}, *2{dotted}},
-    y unit chart=0.5cm,
+    y unit chart=0.26cm,
     group label font=\bfseries\small,
     bar label font=\footnotesize,
     milestone label font=\bfseries\footnotesize,
@@ -210,14 +144,13 @@ into JPAMB before 16 November.
   ]{2026-10-12}{2026-12-13}
   \gantttitlecalendar{month=shortname} \\
   % --- Phase 1: benchmark and analyses ---
-  \ganttbar{Write new benchmark methods}{2026-10-20}{2026-10-30} \\
-  \ganttbar{Submit methods to JPAMB}{2026-10-28}{2026-11-13} \\
+  \ganttbar{Write and submit benchmark methods}{2026-10-20}{2026-11-13} \\
   \ganttbar{Constant extraction}{2026-10-20}{2026-10-27} \\
   \ganttbar{Interval analysis with widening}{2026-10-20}{2026-11-06} \\
-  \ganttbar{Input generator}{2026-10-27}{2026-11-13} \\
+  \ganttbar{Symbolic execution with Z3}{2026-11-06}{2026-11-18} \\
   \ganttbar{Prove widening terminates}{2026-11-02}{2026-11-13} \\
   % --- Phase 2: integration and evaluation ---
-  \ganttbar{Put together into pipeline}{2026-11-09}{2026-11-20} \\
+  \ganttbar{Integrate the analyses}{2026-11-12}{2026-11-22} \\
   \ganttbar{Run evaluation and statistics}{2026-11-16}{2026-11-27} \\
   % --- Phase 3: writing ---
   \ganttbar{Read related papers}{2026-10-26}{2026-11-20} \\
@@ -231,14 +164,15 @@ into JPAMB before 16 November.
 \end{ganttchart}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
     \caption{Contributions, $S_1$ is Ari (s253023), $S_2$ is Brynja (s221901), $S_3$ is Egill (s253025).}
+    \footnotesize
     \begin{tabular}{@{}llrrrr@{}} \toprule
          ID & Contribution & P & $S_1$ & $S_2$ & $S_3$ \\
          \midrule
          \texttt{ISY} & Implement Syntactic Analysis (constant extraction) & 5 & 5 & 0 & 0 \\
-         \texttt{IAB} & Implement Novel Abstractions (intervals) & 5 & 0 & 5 & 0 \\
+         \texttt{ISE} & Implement Symbolic Execution & 10 & 2 &  6 & 2 \\
          \texttt{IBA} & Implement Unbounded Static Analysis & 7 & 0 & 7 & 0 \\
          \texttt{NAN} & Integrate Analyses (3) & 10 & 4 & 2 & 4 \\
          \texttt{EXB} & Extend Benchmark Suite & 5 & 1 & 1 & 3 \\
@@ -249,11 +183,14 @@ into JPAMB before 16 November.
          \texttt{PDI} & Create a Process Diagram & 3 & 3 & 0 & 0 \\
          \texttt{PRW} & Read and relate to recent papers & 3 & 2 & 0 & 1 \\
          \midrule
-         \multicolumn{2}{l}{Total} & 60 & 20 & 20 & 20 \\
+         \multicolumn{2}{l}{Total} & 65 & 22 & 21 & 22 \\
          \multicolumn{2}{l}{Suggested Max Grade} & - & 12 & 12 & 12 \\
          \bottomrule
     \end{tabular}
     \label{tab:contributions}
 \end{table}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
 
 \end{document}
